@@ -33,14 +33,14 @@ int singleNonDuplicate(vector<int> &nums)
             }
             else
             {
-                st = st + 1;
+                st = mid + 1;
             }
         }
         else
         {
             if (nums[mid - 1] == nums[mid])
             {
-                st = st + 1;
+                st = mid + 1;
             }
             else
             {

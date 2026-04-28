@@ -22,7 +22,7 @@ bool isValid(vector<int> &arr, int k, int mid)
             page = arr[i];
         }
     }
-
+    
     return person <= k;
 }
 
@@ -30,11 +30,12 @@ int findPages(vector<int> &arr, int k)
 {
     int n = arr.size();
     int st = 0, end = 0, ans = -1;
-
+    
     for (int i = 0; i < n; ++i)
     {
         end += arr[i];
         st = max(st, arr[i]);
+        
     }
 
     while (st <= end)
