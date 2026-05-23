@@ -4,12 +4,14 @@ using namespace std;
 
 bool checkInclusion(string s1, string s2)
 {
+    int n = s1.length(), m = s2.length();
     if (s1.length() > s2.length()) return false;
     
     int count1[26] = {0};
     int count2[26] = {0};
     
     for (int i = 0; i < s1.length(); i++) {
+        
         count1[s1[i] - 'a']++;
         count2[s2[i] - 'a']++;
     }

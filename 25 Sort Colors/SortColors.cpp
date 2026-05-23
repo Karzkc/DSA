@@ -42,6 +42,7 @@ void sortColors_optimized(vector<int> &nums) // O(n) 2Pass
     }
 }
 
+
 void sortColors_optimal(vector<int> &nums) // O(n) 1 Pass
 {
     // Using DNS(Dutch National Flag) Algorithm
