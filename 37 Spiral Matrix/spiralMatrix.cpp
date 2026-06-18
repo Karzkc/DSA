@@ -18,26 +18,26 @@ vector<int> spiralOrder(vector<vector<int>> &matrix)
         for (int i = scol; i <= ecol; i++)
         {
             spiral.push_back(matrix[srow][i]);
-            cout << matrix[srow][i] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
+            // cout << matrix[srow][i] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
         }
         srow++;
         for (int i = srow; i <= erow; i++)
         {
             spiral.push_back(matrix[i][ecol]);
-            cout << matrix[i][ecol] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
+            // cout << matrix[i][ecol] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
         }
         ecol--;
         
         for (int i = ecol; i >= scol; i--)
         {
             spiral.push_back(matrix[erow][i]);
-            cout << matrix[erow][i] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
+            // cout << matrix[erow][i] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
         }
         erow--;
         for (int i = erow; i >= srow; i--)
         {
             spiral.push_back(matrix[i][scol]);
-            cout << matrix[i][scol] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
+            // cout << matrix[i][scol] << " srow:" << srow << " erow:" << erow << " scol:" << scol << " ecol:" << ecol << endl;
         }
         scol++;
     }
