@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-bool isValid(vector<vector<char>> &board, int row, int col, int dig)
+bool isValid(vector<vector<char>> &board, int row, int col, char dig)
 {
 
     for (int i = 0; i < 9; i++)
@@ -26,7 +26,7 @@ bool isValid(vector<vector<char>> &board, int row, int col, int dig)
     {
         for (int j = scol; j < scol + 3; j++)
         {
-            if (i != row || j != col && dig == board[i][j])
+            if (dig == board[i][j])
             {
                 return false;
             }
@@ -36,11 +36,10 @@ bool isValid(vector<vector<char>> &board, int row, int col, int dig)
 }
 bool sudokuSolver(vector<vector<char>> &board, int row, int col)
 {
-    if (row==9)
+    if (row == 9)
     {
         return true;
     }
-    
     int nrow = row, ncol = col + 1;
     if (ncol == 9)
     {
@@ -67,10 +66,7 @@ bool sudokuSolver(vector<vector<char>> &board, int row, int col)
     }
     return false;
 }
-void solveSudoku(vector<vector<char>> &board)
-{
-    sudokuSolver(board, 0, 0);
-}
+void solveSudoku(vector<vector<char>> &board) { sudokuSolver(board, 0, 0); }
 int main()
 {
 
