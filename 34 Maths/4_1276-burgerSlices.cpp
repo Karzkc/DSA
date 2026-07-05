@@ -1,5 +1,12 @@
+#include <vector>
 // https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients/description/
+#include <iostream>
+using namespace std;
 
+int main() {
+    
+    return 0;
+}
 vector<int> numOfBurgers(int t, int c)
 {
     if (t % 2 != 0)
