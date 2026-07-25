@@ -78,16 +78,68 @@ The expected answer is the **second middle**.
 
 ---
 
-## Better Approach
+## Better Approach: Fast & Slow Pointers
 
-Use **Slow & Fast Pointers**.
+This is the standard approach for solving the middle-of-linked-list problem.
 
-- Slow moves 1 step.
-- Fast moves 2 steps.
+- `slow` moves 1 step at a time.
+- `fast` moves 2 steps at a time.
+- Because `fast` moves twice as fast, when `fast` reaches the end, `slow` will be exactly at the middle node.
 
-When `fast` reaches the end, `slow` is automatically at the middle.
+### Why this works
 
-This finds the answer in **one traversal** and is the standard interview solution.
+`fast` covers double the distance of `slow`.
+So if the list has `n` nodes:
+
+- `slow` reaches the middle after about `n/2` steps
+- `fast` reaches the end after `n` steps
+
+That is why `slow` ends up at the middle node.
+
+---
+
+## Optimal Approach (C++)
+
+```cpp
+ListNode *middleNodeOptimal(ListNode *head)
+{
+    ListNode *slow = head;
+    ListNode *fast = head;
+
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow;
+}
+```
+
+### Explanation
+
+- `slow` starts from the head and moves one node at a time.
+- `fast` starts from the head and moves two nodes at a time.
+- When `fast` reaches the end, `slow` is at the middle node.
+- This uses only one traversal and is the most optimal solution.
+
+### Example
+
+For a linked list:
+
+```text
+1 → 2 → 3 → 4 → 5
+```
+
+- `slow` goes: 1 → 2 → 3
+- `fast` goes: 1 → 3 → 5
+
+So `slow` stops at `3`, which is the middle node.
+
+### Complexity
+
+- **Time:** `O(n)`
+- **Space:** `O(1)`
 
 ---
 
