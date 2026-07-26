@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/first-missing-positive/
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,26 +7,40 @@ using namespace std;
 
 int firstMissingPositive(vector<int> &nums)
 {
-    int mx = 0;
-    for (int i = 0; i < nums.size(); i++)
+    int n = nums.size();
+    for (int i = 0; i < n; i++)
     {
-        
-        
-        if (nums[i] < 0 && nums[i]<=nums.size())
+        if (nums[i] <= 0 || nums[i] > n)
         {
-            nums[i] = 0;
+            nums[i] = n + 1;
         }
-        
+      
     }
-    
-    for (int i = 1; i <= mx; i++)
+
+    for (int i = 0; i < n; i++)
     {
-        if (find(nums.begin(), nums.end(), i) == nums.end())
+
+        if (nums[i] == n + 1)
         {
-            miss = i;
+            continue;
+        }
+        int idx = nums[i] - 1;
+        if (nums[idx] > 0)
+        {
+            nums[idx] = -nums[idx];
         }
     }
-    return miss;
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] > 0)
+        {
+            return nums[i];
+        }
+        else
+        {
+            return n + 1;
+        }
+    }
 }
 int main()
 {
