@@ -73,7 +73,7 @@ void LevelOrder(Node *root)
     {
         return;
     }
-
+    
     queue<Node *> q;
     q.push(root);
     q.push(nullptr);
